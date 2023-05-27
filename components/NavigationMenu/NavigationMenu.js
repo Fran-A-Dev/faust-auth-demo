@@ -46,15 +46,23 @@ export default function NavigationMenu({ menuItems, className }) {
       aria-label={`${menuItems[0]?.menu?.node?.name} menu`}
     >
       {renderMenu(hierarchicalMenuItems)}
-      <li>
-        <Link href="/members">Members</Link>
-      </li>
-      <li>
-        <Link href="/create-post">Create Post</Link>
-      </li>
-      <li>
-        <Link href="/profile">Profile</Link>
-      </li>
+      <div>
+        <h1>Auth Menu</h1>
+        <p>
+          <li>
+            <Link href="/members">Members</Link>
+          </li>
+          <li>
+            <Link href="/create-post">Create Post</Link>
+          </li>
+          <li>
+            <Link href="/profile">Profile</Link>
+          </li>
+          <li>
+            <Link href="/log-in">Login</Link>
+          </li>
+        </p>
+      </div>
     </nav>
   );
 }
