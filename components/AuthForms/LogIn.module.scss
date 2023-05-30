@@ -1,0 +1,47 @@
+/* Styling for the login form */
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Styling for the fieldset */
+.login-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styling for the labels */
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Styling for the input boxes */
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styling for the login button */
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover effect for the login button */
+.login-form button:hover {
+  background-color: #0056b3;
+}

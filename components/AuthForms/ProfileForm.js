@@ -1,14 +1,17 @@
 import { gql, useMutation } from "@apollo/client";
 import { getApolloAuthClient, useAuth } from "@faustwp/core";
 import { useEffect, useState } from "react";
+import styles from "./ProfileForm.module.scss";
+import classNames from "classnames/bind";
+let cx = classNames.bind(styles);
 
 function useViewer() {
   const [viewer, setViewer] = useState(null);
 
   const { isAuthenticated } = useAuth({
     shouldRedirect: true,
-    strategy: "redirect",
-    loginPageUrl: "/login",
+    strategy: "local",
+    loginPageUrl: "/log-in",
   });
 
   useEffect(() => {
@@ -39,7 +42,7 @@ function useViewer() {
   return viewer;
 }
 
-export default function Page(props) {
+export default function Page({ props, className }) {
   const viewer = useViewer();
   const authClient = getApolloAuthClient();
   const [successMessage, setSuccessMessage] = useState();
@@ -100,10 +103,19 @@ export default function Page(props) {
 
   return (
     <>
-      {successMessage && <p>{successMessage}</p>}
-      <form method="post" onSubmit={handleSubmit}>
-        <label htmlFor="firstName">First Name</label>
+      {successMessage && (
+        <p className={cx(["success-message", className])}>{successMessage}</p>
+      )}
+      <form
+        method="post"
+        className={cx(["profile-form", className])}
+        onSubmit={handleSubmit}
+      >
+        <label className={cx(["profile-label", className])} htmlFor="firstName">
+          First Name
+        </label>
         <input
+          className={cx(["profile-input", className])}
           type="text"
           id="firstName"
           name="firstName"
@@ -111,8 +123,11 @@ export default function Page(props) {
           onChange={(e) => setFirstName(e.target.value)}
         />
 
-        <label htmlFor="lastName">Last Name</label>
+        <label className={cx(["profile-label", className])} htmlFor="lastName">
+          Last Name
+        </label>
         <input
+          className={cx(["profile-input", className])}
           type="text"
           id="lastName"
           name="lastName"
@@ -120,8 +135,11 @@ export default function Page(props) {
           onChange={(e) => setLastName(e.target.value)}
         />
 
-        <label htmlFor="email">Email</label>
+        <label className={cx(["profile-label", className])} htmlFor="email">
+          Email
+        </label>
         <input
+          className={cx(["profile-input", className])}
           type="email"
           id="email"
           name="email"
@@ -129,7 +147,9 @@ export default function Page(props) {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <button type="submit">Update Profile</button>
+        <button className={cx(["profile-button", className])} type="submit">
+          Update Profile
+        </button>
       </form>
     </>
   );
