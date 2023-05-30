@@ -1,16 +1,16 @@
-.profile-form {
+.create-form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.profile-label {
+.create-label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-.profile-input {
+.create-input {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -18,7 +18,7 @@
   border-radius: 5px;
 }
 
-.profile-button {
+.create-button {
   width: 100%;
   padding: 10px;
   background-color: #007bff;
@@ -39,4 +39,10 @@
   text-align: center;
   font-weight: bold;
   font-family: monospace;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
