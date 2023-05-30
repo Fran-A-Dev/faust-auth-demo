@@ -1,0 +1,52 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+}
+
+.header {
+  text-align: center;
+}
+
+.ul {
+  list-style: disc inside;
+  padding: 0;
+  margin: 0;
+}
+
+.li {
+  text-align: center;
+  font-style: oblique;
+  font-size: large;
+}
+
+.button {
+  width: 8%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover effect for the login button */
+.button button:hover {
+  background-color: #002852;
+}
+
+.container {
+  display: grid;
+  place-items: center; /* Center the button both horizontally and vertically */
+}
+
+.p {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.a {
+  font-size: x-large;
+}
