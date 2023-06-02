@@ -50,16 +50,10 @@ export default function NavigationMenu({ menuItems, className }) {
         <h1>Auth Menu</h1>
         <p>
           <li>
-            <Link href="/members">Members</Link>
+            <Link href="/log-in">Log In</Link>
           </li>
           <li>
-            <Link href="/create-post">Create Post</Link>
-          </li>
-          <li>
-            <Link href="/profile">Profile</Link>
-          </li>
-          <li>
-            <Link href="/log-in">Login</Link>
+            <Link href="/sign-up">Sign Up</Link>
           </li>
         </p>
       </div>
