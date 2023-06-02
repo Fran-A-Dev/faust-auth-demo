@@ -22,7 +22,8 @@ const RESET_PASSWORD = gql`
   }
 `;
 
-export default function SetPasswordForm({ resetKey: key, login }) {
+export default function SetPasswordForm({ resetKey, login }) {
+  console.log(login);
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [clientErrorMessage, setClientErrorMessage] = useState("");
@@ -36,8 +37,8 @@ export default function SetPasswordForm({ resetKey: key, login }) {
 
     resetPassword({
       variables: {
-        key,
-        login,
+        key: resetKey,
+        login: login,
         password,
       },
     }).catch((error) => {
