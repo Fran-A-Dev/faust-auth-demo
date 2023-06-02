@@ -1,5 +1,7 @@
 import { useLogin } from "@faustwp/core";
 import { useState } from "react";
+import Link from "next/link";
+
 import styles from "./LogIn.module.scss";
 import classNames from "classnames/bind";
 let cx = classNames.bind(styles);
@@ -45,7 +47,13 @@ export default function Login({ className }) {
           onChange={(e) => setPassword(e.target.value)}
         />
       </fieldset>
-
+      <div className={cx(["div", className])}>
+        <Link href="/forgot-password">
+          <a className={cx(["a", className])}>
+            🤷🏽‍♂️ Forgot password? Click Here! 👈🏽
+          </a>
+        </Link>
+      </div>
       {data?.generateAuthorizationCode.error && (
         <p
           dangerouslySetInnerHTML={{
@@ -57,6 +65,12 @@ export default function Login({ className }) {
       <fieldset>
         <button type="submit">Login</button>
       </fieldset>
+      <p className={cx(["p", className])}>
+        Don&#39;t have an account yet?{" "}
+        <Link href="/sign-up">
+          <a>Sign up here! 👈🏽</a>
+        </Link>
+      </p>
     </form>
   );
 }

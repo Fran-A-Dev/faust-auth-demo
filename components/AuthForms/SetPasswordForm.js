@@ -67,10 +67,12 @@ export default function SetPasswordForm({ resetKey, login }) {
   if (wasPasswordReset) {
     return (
       <>
-        <p>Your new password has been set.</p>
-        <Link href="/log-in">
-          <a>Log in</a>
-        </Link>
+        <p className={cx("p")}>Your new password has been set Stoked!🙌🏽</p>
+        <div className={cx("div-tag")}>
+          <Link href="/log-in">
+            <a className={cx("a-tag")}>Log in Here 👈🏽</a>
+          </Link>
+        </div>
       </>
     );
   }
