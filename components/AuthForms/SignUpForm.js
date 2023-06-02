@@ -1,5 +1,9 @@
 import { useMutation, gql } from "@apollo/client";
 import Link from "next/link";
+import styles from "./Signup.module.scss";
+import classNames from "classnames/bind";
+
+let cx = classNames.bind(styles);
 
 const REGISTER_USER = gql`
   mutation registerUser(
@@ -22,7 +26,7 @@ const REGISTER_USER = gql`
   }
 `;
 
-export default function SignUpForm() {
+export default function SignUpForm({ className }) {
   const [register, { data, loading, error }] = useMutation(REGISTER_USER);
   const wasSignUpSuccessful = Boolean(
     data &&
@@ -44,7 +48,7 @@ export default function SignUpForm() {
 
   if (wasSignUpSuccessful) {
     return (
-      <p>
+      <p className={cx(["signup-message", className])}>
         Thanks! Check your email – an account confirmation link has been sent to
         you.
       </p>
@@ -52,26 +56,48 @@ export default function SignUpForm() {
   }
 
   return (
-    <form method="post" onSubmit={handleSubmit}>
+    <form
+      className={cx(["signup-form", className])}
+      method="post"
+      onSubmit={handleSubmit}
+    >
       <fieldset disabled={loading} aria-busy={loading}>
-        <label htmlFor="sign-up-first-name">First name</label>
+        <label
+          className={cx(["signup-label", className])}
+          htmlFor="sign-up-first-name"
+        >
+          First name
+        </label>
         <input
+          className={cx(["signup-input", className])}
           id="sign-up-first-name"
           type="text"
           name="firstName"
           autoComplete="given-name"
           required
         />
-        <label htmlFor="sign-up-last-name">Last name</label>
+        <label
+          className={cx(["signup-label", className])}
+          htmlFor="sign-up-last-name"
+        >
+          Last name
+        </label>
         <input
+          className={cx(["signup-input", className])}
           id="sign-up-first-name"
           type="text"
           name="lastName"
           autoComplete="family-name"
           required
         />
-        <label htmlFor="sign-up-email">Email</label>
+        <label
+          className={cx(["signup-label", className])}
+          htmlFor="sign-up-email"
+        >
+          Email
+        </label>
         <input
+          className={cx(["signup-input", className])}
           id="sign-up-email"
           type="email"
           name="email"
@@ -87,14 +113,18 @@ export default function SignUpForm() {
             <p className="error-message">{error.message}</p>
           )
         ) : null}
-        <button type="submit" disabled={loading}>
+        <button
+          className={cx(["signup-button", className])}
+          type="submit"
+          disabled={loading}
+        >
           {loading ? "Signing up..." : "Sign up"}
         </button>
       </fieldset>
       <p>
-        Already have an account?{" "}
+        Already have an account? Go To The
         <Link href="/log-in">
-          <a>Log in</a>
+          <a className={cx(["a", className])}>Log in Page</a>
         </Link>
       </p>
     </form>
