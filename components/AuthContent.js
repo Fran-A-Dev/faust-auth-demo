@@ -81,11 +81,11 @@ export default function Page({ className }) {
   return (
     <>
       <div className={cx(["container", className])}>
-        <p className={cx(["p", className])}>Welcome Stranger! 👮 </p>
+        <p className={cx(["p", className])}>You have been logged out! </p>
       </div>
       <div className={cx(["container", className])}>
         <a className={cx(["a", className])} href={loginUrl}>
-          Login Here Please!
+          Login Again Here to see Authenticated Content🔐
         </a>
       </div>
     </>
