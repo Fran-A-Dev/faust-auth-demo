@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
-import { getApolloAuthClient, useAuth } from "@faustwp/core";
-import { useLogout } from "@faustwp/core/dist/mjs";
+import { getApolloAuthClient, useAuth, useLogout } from "@faustwp/core";
+import NavAuth from "./NavAuth";
+
 import styles from "./AuthContent.module.scss";
 import classNames from "classnames/bind";
 
@@ -18,6 +19,7 @@ function AuthenticatedView({ className }) {
             nodes {
               id
               title
+              excerpt
             }
           }
           name
@@ -26,26 +28,29 @@ function AuthenticatedView({ className }) {
     `,
     { client }
   );
-
+  console.log(data);
   if (loading) {
     return <>Loading...</>;
   }
 
   return (
     <>
+      <NavAuth />
       <h1 className={cx(["header", className])}>
         Members Only Jackets- for authenticated eyes only 🥼🔐{" "}
       </h1>
       <p className={cx(["header", className])}>Welcome {data?.viewer?.name}!</p>
 
       <p className={cx(["body", className])}>
-        If you are seeing My posts titles, you have been authenticated! Stoked!
+        If you are seeing My posts titles & excerpts, you have been
+        authenticated! Stoked!
       </p>
 
       <ul className={cx(["ul", className])}>
         {data?.viewer?.posts?.nodes.map((post) => (
           <li className={cx(["li", className])} key={post.id}>
-            {post.title}
+            <h2>{post.title}</h2>
+            <p dangerouslySetInnerHTML={{ __html: post.excerpt }}></p>
           </li>
         ))}
       </ul>
@@ -58,7 +63,7 @@ function AuthenticatedView({ className }) {
   );
 }
 
-export default function Page({ props, className }) {
+export default function Page({ className }) {
   const { isAuthenticated, isReady, loginUrl } = useAuth({
     strategy: "local",
     shouldRedirect: false,

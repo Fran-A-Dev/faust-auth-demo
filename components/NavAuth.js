@@ -6,6 +6,11 @@ export default function Navbar({ className, logout }) {
   return (
     <nav className={cx(["navbar", className])}>
       <div className={cx(["div-one", className])}>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+      </div>
+      <div className={cx(["div-one", className])}>
         <Link href="/members">
           <a>Members</a>
         </Link>
@@ -20,9 +25,6 @@ export default function Navbar({ className, logout }) {
           <a>Profile</a>
         </Link>
       </div>
-      <button className={cx(["button", className])} onClick={() => logout()}>
-        Log Out
-      </button>
     </nav>
   );
 }

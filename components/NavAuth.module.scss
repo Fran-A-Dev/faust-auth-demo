@@ -1,6 +1,22 @@
 .navbar {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 130%; /* Position the line vertically in the middle */
+  left: 0;
+  right: 0;
+  height: 2px; /* Set the height of the line */
+  background-color: rgba(
+    0,
+    0,
+    255,
+    0.664
+  ); /* Adjust the desired color and opacity of the line */
 }
 
 .div-one {
