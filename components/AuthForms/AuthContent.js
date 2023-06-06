@@ -28,7 +28,7 @@ function AuthenticatedView({ className }) {
     `,
     { client }
   );
-  console.log(data);
+
   if (loading) {
     return <>Loading...</>;
   }
@@ -81,11 +81,13 @@ export default function Page({ className }) {
   return (
     <>
       <div className={cx(["container", className])}>
-        <p className={cx(["p", className])}>You have been logged out! </p>
+        <p className={cx(["p", className])}>
+          You have either been logged out or need to create an account!
+        </p>
       </div>
       <div className={cx(["container", className])}>
         <a className={cx(["a", className])} href={loginUrl}>
-          Login Again Here to see Authenticated Content🔐
+          Login Here or Sign Up to see Authenticated Content🔐
         </a>
       </div>
     </>
