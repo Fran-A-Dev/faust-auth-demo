@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "../components/AuthForms/LogIn";
+import Login from "../components/LogIn/LogIn";
 
 export default function login() {
   return (

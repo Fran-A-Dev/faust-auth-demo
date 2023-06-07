@@ -2,6 +2,8 @@ import { gql, useQuery } from "@apollo/client";
 import { getApolloAuthClient, useAuth, useLogout } from "@faustwp/core";
 import NavAuth from "./NavAuth";
 
+import PacmanLoader from "react-spinners/PacmanLoader";
+
 import styles from "./AuthContent.module.scss";
 import classNames from "classnames/bind";
 
@@ -30,7 +32,9 @@ function AuthenticatedView({ className }) {
   );
 
   if (loading) {
-    return <>Loading...</>;
+    return (
+      <PacmanLoader loading={loading} color="#ffeb3b" speedMultiplier={3} />
+    );
   }
 
   return (
@@ -71,7 +75,9 @@ export default function Page({ className }) {
   });
 
   if (!isReady) {
-    return <>Loading...</>;
+    return (
+      <PacmanLoader loading={!isReady} color="#ffeb3b" speedMultiplier={3} />
+    );
   }
 
   if (isAuthenticated === true) {

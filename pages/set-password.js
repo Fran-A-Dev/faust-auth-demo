@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import SetPasswordForm from "../components/AuthForms/SetPasswordForm";
+import SetPasswordForm from "../components/SetPasswordForm/SetPasswordForm";
 export default function SetPassword() {
   const router = useRouter();
   const resetKey = String(router.query.key || "");
