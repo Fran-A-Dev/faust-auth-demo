@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import Link from "next/link";
-import styles from "./SetPassword.module.scss";
+import styles from "./SetPasswordForm.module.scss";
 import classNames from "classnames/bind";
 
 let cx = classNames.bind(styles);

@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { getApolloAuthClient, useAuth } from "@faustwp/core";
 import { useEffect, useState } from "react";
-import styles from "./CreatePost.module.scss";
+import styles from "./CreatePostForm.module.scss";
 import classNames from "classnames/bind";
 import PacmanLoader from "react-spinners/PacmanLoader";
 
@@ -39,7 +39,7 @@ function useViewer() {
   return viewer;
 }
 
-export default function Page(props, className) {
+export default function CreatePostForm(props, className) {
   const viewer = useViewer();
   const authClient = getApolloAuthClient();
   const [successMessage, setSuccessMessage] = useState("");

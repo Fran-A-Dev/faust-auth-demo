@@ -42,7 +42,7 @@ function useViewer() {
   return viewer;
 }
 
-export default function Page({ props, className }) {
+export default function ProfileForm({ props, className }) {
   const viewer = useViewer();
   const authClient = getApolloAuthClient();
   const [successMessage, setSuccessMessage] = useState();

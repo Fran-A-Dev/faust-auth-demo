@@ -1,10 +1,10 @@
 import React from "react";
-import SendPasswordResetEmailForm from "../components/SendPasswordReset/SendPasswordReset";
+import { SendPasswordresetForm } from "../components/index";
 
 export default function ForgotPassword() {
   return (
     <div>
-      <SendPasswordResetEmailForm />
+      <SendPasswordresetForm />
     </div>
   );
 }

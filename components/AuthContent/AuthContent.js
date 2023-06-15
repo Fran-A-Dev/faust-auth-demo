@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { getApolloAuthClient, useAuth, useLogout } from "@faustwp/core";
-import NavAuth from "./NavAuth";
+import { NavAuth } from "../NavAuth";
 
 import PacmanLoader from "react-spinners/PacmanLoader";
 
@@ -67,7 +67,7 @@ function AuthenticatedView({ className }) {
   );
 }
 
-export default function Page({ className }) {
+export default function AuthContent({ className }) {
   const { isAuthenticated, isReady, loginUrl } = useAuth({
     strategy: "local",
     shouldRedirect: false,

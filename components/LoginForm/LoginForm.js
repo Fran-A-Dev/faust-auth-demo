@@ -2,11 +2,11 @@ import { useLogin } from "@faustwp/core";
 import { useState } from "react";
 import Link from "next/link";
 
-import styles from "./LogIn.module.scss";
+import styles from "./LoginForm.module.scss";
 import classNames from "classnames/bind";
 let cx = classNames.bind(styles);
 
-export default function Login({ className }) {
+export default function LoginForm({ className }) {
   const [usernameEmail, setUsernameEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, loading, data, error } = useLogin();

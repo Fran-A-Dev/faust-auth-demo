@@ -1,6 +1,6 @@
 import { useMutation, gql } from "@apollo/client";
 import { useState } from "react";
-import styles from "./SendPasswordReset.module.scss";
+import styles from "./SendPasswordresetForm.module.scss";
 import classNames from "classnames/bind";
 
 let cx = classNames.bind(styles);
@@ -15,7 +15,7 @@ const SEND_PASSWORD_RESET_EMAIL = gql`
   }
 `;
 
-export default function SendPasswordResetEmailForm({ className }) {
+export default function SendPasswordresetForm({ className }) {
   const [sendPasswordResetEmail, { loading, error, data }] = useMutation(
     SEND_PASSWORD_RESET_EMAIL
   );
