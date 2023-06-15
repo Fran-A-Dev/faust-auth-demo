@@ -3,6 +3,8 @@ import { getApolloAuthClient, useAuth } from "@faustwp/core";
 import { useEffect, useState } from "react";
 import styles from "./CreatePost.module.scss";
 import classNames from "classnames/bind";
+import PacmanLoader from "react-spinners/PacmanLoader";
+
 let cx = classNames.bind(styles);
 
 function useViewer() {
@@ -10,7 +12,7 @@ function useViewer() {
 
   const { isAuthenticated } = useAuth({
     shouldRedirect: true,
-    strategy: "redirect",
+    strategy: "local",
     loginPageUrl: "/login",
   });
 
@@ -46,7 +48,6 @@ export default function Page(props, className) {
   const canCreatePosts = Boolean(
     viewer?.capabilities?.includes("publish_posts")
   );
-
   const [createPost] = useMutation(
     gql`
       mutation CreatePost(
@@ -85,6 +86,15 @@ export default function Page(props, className) {
     }
   };
 
+  // Render loading state while checking viewer capabilities
+  if (viewer === null) {
+    return (
+      <div className={cx(["loading-container", className])}>
+        <PacmanLoader loading={true} color="#ffeb3b" speedMultiplier={3} />
+      </div>
+    );
+  }
+
   return (
     <>
       {successMessage && (
@@ -93,10 +103,7 @@ export default function Page(props, className) {
         </p>
       )}
       <h1 className={cx(["header", className])}>Create A Post ✍🏽</h1>
-      {!canCreatePosts && (
-        <p>You don't have the permissions necessary to create posts.</p>
-      )}
-      {canCreatePosts && (
+      {canCreatePosts ? (
         <form
           className={cx(["create-form", className])}
           method="post"
@@ -136,6 +143,8 @@ export default function Page(props, className) {
             Add Post
           </button>
         </form>
+      ) : (
+        <p>You don't have the permissions necessary to create posts.</p>
       )}
     </>
   );
