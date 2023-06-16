@@ -1,6 +1,6 @@
 import { useMutation, gql } from "@apollo/client";
 import Link from "next/link";
-import styles from "./Signup.module.scss";
+import styles from "./SignupForm.module.scss";
 import classNames from "classnames/bind";
 
 let cx = classNames.bind(styles);

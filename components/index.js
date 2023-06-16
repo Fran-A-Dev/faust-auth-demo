@@ -21,3 +21,4 @@ export { ProfileForm } from "./ProfileForm";
 export { SendPasswordresetForm } from "./SendPasswordresetForm";
 export { SetPasswordForm } from "./SetPasswordForm";
 export { CreatePostForm } from "./CreatePostForm";
+export { SignupForm } from "./SignupForm";
