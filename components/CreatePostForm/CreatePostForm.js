@@ -53,7 +53,7 @@ export default function CreatePostForm(props, className) {
       mutation CreatePost(
         $title: String!
         $content: String!
-        $status: String!
+        $status: PostStatusEnum!
       ) {
         createPost(
           input: { title: $title, content: $content, status: $status }
